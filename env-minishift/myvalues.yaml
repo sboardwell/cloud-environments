@@ -53,12 +53,11 @@ jenkins:
       value: "hudson.model.View.Delete:admin"
     - name: "permission"
       value: "hudson.scm.SCM.Tag:admin"
-    SecurityRealmClass: "hudson.security.HudsonPrivateSecurityRealm"
-    SecurityRealmAttributes:
-    - name: "disableSignup"
-      value: "true"
-    - name: "enableCaptcha"
-      value: "false"
+    SecurityRealm: |-
+     <securityRealm class="hudson.security.HudsonPrivateSecurityRealm">
+       <disableSignup>true</disableSignup>
+       <enableCaptcha>false</enableCaptcha>
+     </securityRealm>
   Global:
     EnvVars:
       DOCKER_REGISTRY: "docker-registry.default.svc:5000"
